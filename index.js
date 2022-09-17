@@ -37,8 +37,8 @@ function playOneRound(playerSelection, computerSelection) {
         (playerSelection === "Paper" && computerSelection === "Scissors")
     ) {
         computerScore++;
-        choicesELs[choices.indexOf(computerSelection)].classList.add("win");
         choicesELs[choices.indexOf(playerSelection)].classList.add("lose");
+        choicesELs[choices.indexOf(computerSelection)].classList.add("win");
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
 }
@@ -46,24 +46,18 @@ function playOneRound(playerSelection, computerSelection) {
 async function game(e) {
     clearChoices();
     await delay(100);
+
     playerSelection = this.id;
     choicesELs[choices.indexOf(playerSelection)].classList.add("player-choice");
-    console.log(this.id);
 
     const computerSelection = getComputerChoice();
-    console.log(`Player: ${playerSelection}, Computer: ${computerSelection}`);
-    resultEl.style.color = "rgba(0,0,0,1)";
-    resultEl.style.textShadow = "1px 1px 2px white";
     resultEl.innerText = playOneRound(playerSelection, computerSelection);
+    resultEl.style.cssText = "color: rgba(0, 0, 0, 1); text-shadow: 1px 1px 2px white";
 
-    console.log(
-        `Player score: ${playerScore}, Computer score: ${computerScore}`
-    );
     computerScoreEl.innerText = computerScore;
     playerScoreEl.innerText = playerScore;
 
     await delay(100);
-
     if (playerScore >= 5) {
         alert("You win!");
         clearScores();
@@ -78,13 +72,9 @@ async function game(e) {
 
 function clearChoices() {
     choicesELs.forEach((element) =>
-        element.classList.remove("computer-choice")
+        element.classList.remove("computer-choice", "player-choice", "win", "lose")
     );
-    choicesELs.forEach((element) => element.classList.remove("player-choice"));
-    choicesELs.forEach((element) => element.classList.remove("win"));
-    choicesELs.forEach((element) => element.classList.remove("lose"));
-    resultEl.style.color = "rgba(0,0,0,0)";
-    resultEl.style.textShadow = "none";
+    resultEl.style.cssText = "color: rgba(0,0,0,0); text-shadow: none";
 }
 
 function clearScores() {
@@ -92,7 +82,6 @@ function clearScores() {
     computerScore = 0;
     computerScoreEl.innerText = computerScore;
     playerScoreEl.innerText = playerScore;
-    resultEl.innterText = "Make you choice";
 }
 
 function delay(time) {
