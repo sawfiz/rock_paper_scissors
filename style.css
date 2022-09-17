@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css?family=Audiowide");
+@import url("https://fonts.googleapis.com/css?family=eczar");
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+body {
+    height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80");
+    background-size: cover;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1 {
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+    font-family: "Audiowide";
+    color: white;
+    font-size: 10rem; 
+    letter-spacing: 5px;
+    text-shadow: 1px 1px 2px black;
+}
+
+h2 {
+    font-family: "Quicksand";
+    color: black;
+    font-size: 3rem; 
+    letter-spacing: 5px;
+    text-shadow: 1px 1px 2px white;
+}
+
+.choices {
+    display: flex;
+    margin: 50px;
+    justify-content: space-between;
+    gap: 150px;
+}
+
+.choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 10px;
+    cursor: pointer;
+    font-family: "Audiowide";
+    letter-spacing: 2px;
+    border: 3px solid rgba(0,0,0,0);
+    transition: 0.5s;
+}
+
+.choice:hover {
+    border: 3px solid #bba082;
+}
+
+.choice.computer-choice {
+    border: 3px solid coral;
+    scale: 1.1;
+}
+
+.choice.player-choice {
+    border: 3px solid aqua;
+    scale: 1.1;
+}
+
+.choice.player-choice.computer-choice {
+    border: 3px solid green;
+    scale: 1.1;
+}
+
+.choice.win {
+    transform: translateY(-20%);
+}
+
+.choice.lose {
+    transform: translateY(20%);
+}
+
+.choice-img {
+    width: 300px;
+    height: 300px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+    border-radius: 50%;
+}
+
+.choice-text {
+    font-size: 3rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.3);
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.result {
+    font-size: 3rem;
+    font-family: "Quicksand";
+    /* text-shadow: 1px 1px 2px white; */
+    color: rgba(0, 0, 0, 0);
+}
+
+.scores {
+    display: flex;
+    width: 1000px;
+    justify-content: space-around;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.score {
+    font-family: "Audiowide";
+    /* font-family: "Quicksand"; */
+    font-size: 4rem;
+    color: white;
+}
+
+#computer-score {
+    color: coral;
+}
+
+#player-score {
+    color: aqua;
+}
