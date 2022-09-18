@@ -6,6 +6,10 @@ const resultEl = document.querySelector(".result");
 const computerScoreEl = document.querySelector("#computer-score");
 const playerScoreEl = document.querySelector("#player-score");
 
+const youWinEl = new Audio('sounds/youwin.mp3');
+const youLoseEl = new Audio('sounds/youlose.mp3');
+const tieEl = new Audio('sounds/tom.mp3');
+
 const choices = ["Rock", "Paper", "Scissors"];
 const numberOfGames = 5;
 let playerScore = 0;
@@ -19,6 +23,7 @@ function getComputerChoice() {
 
 function playOneRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
+        tieEl.play();
         return "Tie";
     }
     if (
@@ -29,6 +34,7 @@ function playOneRound(playerSelection, computerSelection) {
         playerScore++;
         choicesELs[choices.indexOf(playerSelection)].classList.add("win");
         choicesELs[choices.indexOf(computerSelection)].classList.add("lose");
+        youWinEl.play();
         return `You Win! ${playerSelection} beats ${computerSelection}`;
     }
     if (
@@ -39,6 +45,7 @@ function playOneRound(playerSelection, computerSelection) {
         computerScore++;
         choicesELs[choices.indexOf(playerSelection)].classList.add("lose");
         choicesELs[choices.indexOf(computerSelection)].classList.add("win");
+        youLoseEl.play();
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
 }
