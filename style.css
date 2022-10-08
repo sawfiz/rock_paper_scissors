@@ -112,8 +112,12 @@ h2 {
 .result {
     font-size: 1.5rem;
     font-family: "Quicksand";
-    /* text-shadow: 1px 1px 2px white; */
-    color: rgba(0, 0, 0, 0);
+    color: #0000;
+}
+
+.result.show {
+    color: black;
+    text-shadow: 1px 1px 2px white;
 }
 
 .scores {
@@ -142,4 +146,35 @@ footer {
     position: fixed;
     bottom: 5px;
     text-align: center;
+}
+
+dialog {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    background-color: #333;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.7);
+    border-radius: 5px;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-text {
+    font-family: "quicksand";
+    font-size: 2rem;
+    color: white;
+    margin: 1rem 5rem;
+}
+
+.modal-btn {
+    width: 200px;
+    padding: 0.5rem 2rem;
+    margin: auto;
+    font-size: 1rem;
+    border-radius: 5px;
+    outline: none;
 }

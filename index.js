@@ -9,6 +9,9 @@ const choicesELs = Array.from(document.querySelectorAll('.choice'));
 const resultEl = document.querySelector('.result');
 const computerScoreEl = document.querySelector('#computer-score');
 const playerScoreEl = document.querySelector('#player-score');
+const modalEl = document.querySelector('.modal');
+const modelTextEl = document.querySelector('.modal-text');
+const closeModalEl = document.querySelector('.modal-btn');
 
 const youWinEl = new Audio('sounds/youwin.mp3');
 const youLoseEl = new Audio('sounds/youlose.mp3');
@@ -66,7 +69,7 @@ function clearChoices() {
   choicesELs.forEach((element) =>
     element.classList.remove('computer-choice', 'player-choice', 'win', 'lose')
   );
-  resultEl.style.cssText = 'color: rgba(0,0,0,0); text-shadow: none';
+  resultEl.classList.remove('show');
 }
 
 function delay(time) {
@@ -83,20 +86,19 @@ async function game() {
 
   const computerSelection = getComputerChoice();
   resultEl.innerText = playOneRound(playerSelection, computerSelection);
-  resultEl.style.cssText =
-    'color: rgba(0, 0, 0, 1); text-shadow: 1px 1px 2px white';
+  resultEl.classList.add('show');
 
   computerScoreEl.innerText = computerScore;
   playerScoreEl.innerText = playerScore;
 
   await delay(100);
   if (playerScore >= numberOfGames) {
-    alert('You win!');
-    clearScores();
+    modalEl.showModal();
+    modelTextEl.innerText = 'You win!';
   }
   if (computerScore >= numberOfGames) {
-    alert('You lose!');
-    clearScores();
+    modalEl.showModal();
+    modelTextEl.innerText = 'You lose!';
   }
 }
 
@@ -107,3 +109,8 @@ choicesELs.forEach((element) =>
 choicesELs.forEach((choice) =>
   choice.addEventListener('click', game, { capture: true })
 );
+
+closeModalEl.addEventListener('click', () => {
+  modalEl.close();
+  clearScores();
+});
