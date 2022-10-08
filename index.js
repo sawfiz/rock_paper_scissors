@@ -125,7 +125,8 @@ function game() {
 
 // Capture the click on choice elements and call the game function
 choicesELs.forEach((choice) =>
-  choice.addEventListener('click', game, { capture: true })
+  choice.addEventListener('click', game)
+  // choice.addEventListener('click', game, { capture: true })
 );
 
 // Only clear choices colors and positions when the players mouseout
