@@ -1,17 +1,17 @@
 # Rock Paper Scissors
 
 - [Rock Paper Scissors](#rock-paper-scissors)
-  - [Things I leaned during this project:](#things-i-leaned-during-this-project)
+  - [Things I leaned](#things-i-leaned)
     - [HTML](#html)
     - [CSS](#css)
     - [JS](#js)
-  - [Things I'm not happy about or will return to:](#things-im-not-happy-about-or-will-return-to)
+  - [To do](#to-do)
   - [Resources](#resources)
-  - [Live site:](#live-site)
+  - [Live site](#live-site)
 
 [Project: Rock Paper Scissors](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors) from the [Foundations](https://www.theodinproject.com/paths/foundations/courses/foundations) course, [the Odin Project](https://www.theodinproject.com/).
 
-## Things I leaned during this project:
+## Things I leaned
 ### HTML
 - using the `<dialog>` tag to create a modal easily
 
@@ -21,19 +21,20 @@
 - Using transition to move elements
 
 ### JS
-- targeting elements in a DOM model
-- changing innerText of HTML elements
-- adding event listener to a single element
-- adding event listener to an array of elements
-- adding/moving classes to an element to show/hide/reposition
-- playing sound 
+- Targeting elements in a DOM model
+- Changing innerText of HTML elements
+- Adding event listener to a single element
+- Adding event listener to an array of elements
+- Adding/moving classes to an element to show/hide/reposition
+- Playing sound 
 
-## Things I'm not happy about or will return to:
+## To do
 - How to add a favicon
-- How to animate a <dialog>
+- How to animate a `<dialog>`
+- Learn more about dialog at https://web.dev/building-a-dialog-component/ 
 
 ## Resources
 - [Modal made easy - dialog = the easiest way to make a popup modal](https://www.youtube.com/watch?v=TAB_v6yBXIE) by Kevin Powell
 
-## Live site: 
+## Live site
 https://sawfiz.github.io/rock_paper_scissors/
