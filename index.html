@@ -2,57 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Sciccors</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Sciccors</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <main>
+  <main>
+    <h1>Game on</h1>
+    <h2>Make you choice...</h2>
 
-        <h1>Game on</h1>
-        <h2>Make you choice...</h2>
-        <div class="choices">
-            <div class="choice" id="Rock">
-                <img class="choice-img"
-                    src="https://media.istockphoto.com/photos/stones-zen-on-white-picture-id1002706164?s=612x612"
-                    alt="Some rocks">
-                <p class="choice-text">Rock</p>
-            </div>
-            <div class="choice" id="Paper">
-                <img class="choice-img"
-                    src="https://media.istockphoto.com/photos/newspapers-picture-id458325273?s=2048x2048"
-                    alt="Some paper">
-                <p class="choice-text">Paper</p>
-            </div>
-            <div class="choice" id="Scissors">
-                <img class="choice-img"
-                    src="https://media.istockphoto.com/photos/scissors-picture-id115937300?s=2048x2048"
-                    alt="A pair of scissors">
-                <p class="choice-text">Scissors</p>
-            </div>
-        </div>
-        <div class="result">Make your choice</div>
-        <div class="scores">
-            <div class="score">Player:
-                <span id="player-score">0</span>
-            </div>
-            <div class="score">Computer:
-                <span id="computer-score">0</span>
-            </div>
-        </div>
-    </main>
-    <dialog class="modal">
-        <div class="modal-content">
-            <div class="modal-text">You win!</div>
-            <button class="modal-btn">Play again</button>
-        </div>
-        </dialog>
+    <div class="choices">
+      <div class="choice" id="Rock">
+        <img class="choice-img"
+          src="https://media.istockphoto.com/photos/stones-zen-on-white-picture-id1002706164?s=612x612"
+          alt="Some rocks">
+        <p class="choice-text">Rock</p>
+      </div>
+      <div class="choice" id="Paper">
+        <img class="choice-img" src="https://media.istockphoto.com/photos/newspapers-picture-id458325273?s=2048x2048"
+          alt="Some paper">
+        <p class="choice-text">Paper</p>
+      </div>
+      <div class="choice" id="Scissors">
+        <img class="choice-img" src="https://media.istockphoto.com/photos/scissors-picture-id115937300?s=2048x2048"
+          alt="A pair of scissors">
+        <p class="choice-text">Scissors</p>
+      </div>
+    </div>
 
-    <footer>Copyright &copy; sawfiz@github</footer>
-    <script src="index.js"></script>
+    <div class="result">Make your choice</div>
+    <div class="scores">
+      <div class="score">Player:
+        <span id="player-score">0</span>
+      </div>
+      <div class="score">Computer:
+        <span id="computer-score">0</span>
+      </div>
+    </div>
+  </main>
+
+  <dialog class="modal">
+    <div class="modal-content">
+      <div class="modal-text">You win!</div>
+      <button class="modal-btn">Restart</button>
+    </div>
+  </dialog>
+
+  <footer>Copyright &copy; sawfiz@github</footer>
+  <script src="index.js"></script>
 </body>
 
 </html>
