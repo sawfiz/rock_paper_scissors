@@ -1,7 +1,8 @@
+// Global constants
 const gamesToPlay = 5;
+const choices = ['rock', 'paper', 'scissors'];
 
 function getComputerChoice() {
-  const choices = ['rock', 'paper', 'scissors'];
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
@@ -28,7 +29,6 @@ function playRound() {
   let winner;
   return new Promise((resolve) => {
     getPlayerChoice().then((playerChoice) => {
-      console.log(playerChoice);
       const computerChoice = getComputerChoice();
 
       console.log('Player Choice: ', playerChoice);
@@ -37,8 +37,9 @@ function playRound() {
       // Tie game
       if (playerChoice === computerChoice) {
         console.log('Tie!');
-        winner = 'rock';
+        winner = 'tie';
       } else if (
+        // Player wins
         (computerChoice === 'rock' && playerChoice === 'paper') ||
         (computerChoice === 'scissors' && playerChoice === 'rock') ||
         (computerChoice === 'paper' && playerChoice === 'scissors')
@@ -66,7 +67,6 @@ async function game() {
     while (gamesPlayed < gamesToPlay) {
       // eslint-disable-next-line no-await-in-loop, no-loop-func
       await playRound().then((winner) => {
-        console.log('winner is', winner);
         ties += winner === 'tie';
         playerScore += winner === 'player';
         computerScore += winner === 'computer';
