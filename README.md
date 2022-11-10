@@ -4,7 +4,11 @@
   - [Things I leaned](#things-i-leaned)
     - [HTML](#html)
     - [CSS](#css)
+      - [Orignal version created in 2022-09](#orignal-version-created-in-2022-09)
+      - [Revisit the project in 2022-10](#revisit-the-project-in-2022-10)
     - [JS](#js)
+      - [Original version created in 2022-09](#original-version-created-in-2022-09)
+      - [Revisit the project on 2022-11-09](#revisit-the-project-on-2022-11-09)
   - [To do](#to-do)
   - [Resources](#resources)
   - [Live site](#live-site)
@@ -16,17 +20,27 @@
 - using the `<dialog>` tag to create a modal easily
 
 ### CSS
+#### Orignal version created in 2022-09
 - How to add Google fonts
 - How to add images from Unsplash
 - Using transition to move elements
+#### Revisit the project in 2022-10
+- Add responsiveness
+- Add dialog/modal
 
 ### JS
-- Targeting elements in a DOM model
-- Changing innerText of HTML elements
-- Adding event listener to a single element
-- Adding event listener to an array of elements
-- Adding/moving classes to an element to show/hide/reposition
-- Playing sound 
+#### Original version created in 2022-09
+- Target elements in a DOM model
+- Change innerText of HTML elements
+- Add event listener to a single element
+- Add event listener to an array of elements
+- Add/remove classes to an element to show/hide/reposition
+- Play sound 
+#### Revisit the project on 2022-11-09
+- Eliminate global variables
+- Keep a few global constants
+- Rewrite the console version of the js code with properly structured functions
+- Rewrite the overall code based on the Modle-View-Controller (MVC) design pattern
 
 ## To do
 - How to add a favicon
