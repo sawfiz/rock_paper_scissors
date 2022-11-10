@@ -106,7 +106,7 @@ async function game() {
 
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve) => {
-    while (gamesPlayed < gamesToPlay) {
+    while (playerScore < gamesToPlay && computerScore < gamesToPlay) {
       // eslint-disable-next-line no-await-in-loop, no-loop-func
       await playRound().then((winner) => {
         ties += winner === 'tie';
@@ -117,14 +117,13 @@ async function game() {
 
         gamesPlayed += 1;
         console.log(ties, playerScore, computerScore);
-        if (gamesPlayed >= gamesToPlay) {
-          console.log(
-            `Game Over.  Player: ${playerScore}  Computer: ${computerScore}  Ties: ${ties}`
-          );
-          resolve();
-        }
       });
     }
+    console.log(
+      `Game Over.  Player: ${playerScore}  Computer: ${computerScore}  Ties: ${ties}`
+    );
+    const winner = playerScore > computerScore ? 'player' : 'computer';
+    resolve(winner);
   });
 }
 
@@ -136,14 +135,30 @@ function resetScoresDisplay() {
   computerScoreEl.innerText = '0';
 }
 
+function showPlayAgainModal(winner) {
+  const modalEl = document.querySelector('.modal');
+  const modalTextEl = document.querySelector('.modal-text');
+  const closeModalEl = document.querySelector('.modal-btn');
+  return new Promise((resolve) => {
+    modalEl.showModal();
+    modalTextEl.innerText = `${
+      winner.charAt(0).toUpperCase() + winner.substring(1)
+    } wins!`;
+    closeModalEl.addEventListener('click', () => {
+      modalEl.close();
+      resolve();
+    });
+  });
+}
+
 async function gameMaster() {
   // eslint-disable-next-line no-constant-condition
   while (true) {
     // eslint-disable-next-line no-await-in-loop, no-loop-func
-    await game().then(async () => {
+    await game().then(async (winner) => {
       // eslint-disable-next-line no-alert
       await delay(500);
-      alert('Play again?');
+      await showPlayAgainModal(winner);
       resetScoresDisplay();
     });
   }
