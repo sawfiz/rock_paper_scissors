@@ -8,7 +8,9 @@
       - [Revisit the project in 2022-10](#revisit-the-project-in-2022-10)
     - [JS](#js)
       - [Original version created in 2022-09](#original-version-created-in-2022-09)
-      - [Revisit the project on 2022-11-09](#revisit-the-project-on-2022-11-09)
+      - [Revisit the project in 2022-11](#revisit-the-project-in-2022-11)
+        - [Console version](#console-version)
+        - [UI version](#ui-version)
   - [To do](#to-do)
   - [Resources](#resources)
   - [Live site](#live-site)
@@ -36,11 +38,15 @@
 - Add event listener to an array of elements
 - Add/remove classes to an element to show/hide/reposition
 - Play sound 
-#### Revisit the project on 2022-11-09
+#### Revisit the project in 2022-11
+##### Console version
 - Eliminate global variables
 - Keep a few global constants
 - Rewrite the console version of the js code with properly structured functions
 - Rewrite the overall code based on the Modle-View-Controller (MVC) design pattern
+##### UI version
+- Use async programming Promise / await
+- Putting Promise / await insie a loop
 
 ## To do
 - How to add a favicon
