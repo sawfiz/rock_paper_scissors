@@ -12,21 +12,14 @@ function getPlayerChoice() {
   const scissorsEl = document.getElementById('scissors');
 
   return new Promise((resolve) => {
-    rockEl.addEventListener('click', () => {
-      resolve('rock');
-    });
-    paperEl.addEventListener('click', () => {
-      resolve('paper');
-    });
-    scissorsEl.addEventListener('click', () => {
-      resolve('scissors');
-    });
-    //   return prompt('rock, paper, scissors');
+    rockEl.addEventListener('click', () => resolve('rock'));
+    paperEl.addEventListener('click', () => resolve('paper'));
+    scissorsEl.addEventListener('click', () => resolve('scissors'));
+    //   replaces:  return prompt('rock, paper, scissors');
   });
 }
 
 function playRound() {
-  let winner;
   return new Promise((resolve) => {
     getPlayerChoice().then((playerChoice) => {
       const computerChoice = getComputerChoice();
@@ -37,21 +30,20 @@ function playRound() {
       // Tie game
       if (playerChoice === computerChoice) {
         console.log('Tie!');
-        winner = 'tie';
-      } else if (
+        resolve('tie');
+      }
+      if (
         // Player wins
         (computerChoice === 'rock' && playerChoice === 'paper') ||
         (computerChoice === 'scissors' && playerChoice === 'rock') ||
         (computerChoice === 'paper' && playerChoice === 'scissors')
       ) {
         console.log('Player wins!');
-        winner = 'player';
-      } else {
-        // Computer wins
-        console.log('Computer wins!');
-        winner = 'computer';
+        resolve('player');
       }
-      resolve(winner);
+      // Computer wins
+      console.log('Computer wins!');
+      resolve('computer');
     });
   });
 }
