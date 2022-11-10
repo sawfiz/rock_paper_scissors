@@ -2,6 +2,11 @@
 const gamesToPlay = 5;
 const choices = ['rock', 'paper', 'scissors'];
 
+// Global function
+function delay(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 function getComputerChoice() {
   return choices[Math.floor(Math.random() * choices.length)];
 }
@@ -19,20 +24,48 @@ function getPlayerChoice() {
   });
 }
 
+async function displayPlay(winner, loser, winnerChoice, loserChoice) {
+  if (winner === 'tie') {
+    const tieEl = document.getElementById(`${winnerChoice}`);
+    tieEl.classList.add('choice', 'player-choice', 'computer-choice');
+    await delay(1000);
+    tieEl.classList.remove('player-choice', 'computer-choice');
+  } else {
+    const winnerChoiceEl = document.getElementById(`${winnerChoice}`);
+    winnerChoiceEl.classList.add('win');
+    const loserChoiceEl = document.getElementById(`${loserChoice}`);
+    loserChoiceEl.classList.add('lose');
+    if (winner === 'player') {
+      winnerChoiceEl.classList.add('player-choice');
+      loserChoiceEl.classList.add('computer-choice');
+    } else {
+      winnerChoiceEl.classList.add('computer-choice');
+      loserChoiceEl.classList.add('player-choice');
+    }
+    await delay(1000);
+    winnerChoiceEl.classList.remove('win', 'player-choice', 'computer-choice');
+    loserChoiceEl.classList.remove('lose', 'player-choice', 'computer-choice');
+  }
+}
+
 function playRound() {
+  const youWinSound = new Audio('sounds/youwin.mp3');
+  const youLoseSound = new Audio('sounds/youlose.mp3');
+  const tieSound = new Audio('sounds/tom.mp3');
   return new Promise((resolve) => {
     getPlayerChoice().then((playerChoice) => {
       const computerChoice = getComputerChoice();
 
-      console.log('Player Choice: ', playerChoice);
+      console.log('Player Choice:', playerChoice);
       console.log('Computer Choice:', computerChoice);
 
       // Tie game
       if (playerChoice === computerChoice) {
         console.log('Tie!');
         resolve('tie');
-      }
-      if (
+        tieSound.play();
+        displayPlay('tie', 'tie', playerChoice);
+      } else if (
         // Player wins
         (computerChoice === 'rock' && playerChoice === 'paper') ||
         (computerChoice === 'scissors' && playerChoice === 'rock') ||
@@ -40,12 +73,29 @@ function playRound() {
       ) {
         console.log('Player wins!');
         resolve('player');
+        youWinSound.play();
+        displayPlay('player', 'computer', playerChoice, computerChoice);
+      } else {
+        // Computer wins
+        console.log('Computer wins!');
+        resolve('computer');
+        youLoseSound.play();
+        displayPlay('computer', 'player', computerChoice, playerChoice);
       }
-      // Computer wins
-      console.log('Computer wins!');
-      resolve('computer');
     });
   });
+}
+
+function updateDisplay(winner, playerScore, computerScore) {
+  const resultEl = document.getElementById('result');
+  resultEl.classList.add('show');
+  resultEl.innerText = winner === 'tie' ? 'Tie!' : `${winner} wins!`;
+
+  const playerScoreEl = document.getElementById('player-score');
+  playerScoreEl.innerText = playerScore;
+
+  const computerScoreEl = document.getElementById('computer-score');
+  computerScoreEl.innerText = computerScore;
 }
 
 async function game() {
@@ -63,6 +113,8 @@ async function game() {
         playerScore += winner === 'player';
         computerScore += winner === 'computer';
 
+        updateDisplay(winner, playerScore, computerScore);
+
         gamesPlayed += 1;
         console.log(ties, playerScore, computerScore);
         if (gamesPlayed >= gamesToPlay) {
@@ -76,13 +128,23 @@ async function game() {
   });
 }
 
+function resetScoresDisplay() {
+  const playerScoreEl = document.getElementById('player-score');
+  playerScoreEl.innerText = '0';
+
+  const computerScoreEl = document.getElementById('computer-score');
+  computerScoreEl.innerText = '0';
+}
+
 async function gameMaster() {
   // eslint-disable-next-line no-constant-condition
   while (true) {
-    // eslint-disable-next-line no-await-in-loop
-    await game().then(() => {
+    // eslint-disable-next-line no-await-in-loop, no-loop-func
+    await game().then(async () => {
       // eslint-disable-next-line no-alert
+      await delay(500);
       alert('Play again?');
+      resetScoresDisplay();
     });
   }
 }
