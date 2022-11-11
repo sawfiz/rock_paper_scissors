@@ -6,9 +6,10 @@
     - [CSS](#css)
       - [Orignal version created in 2022-09](#orignal-version-created-in-2022-09)
       - [Revisit the project in 2022-10](#revisit-the-project-in-2022-10)
+      - [Revisit the project in 2022-11](#revisit-the-project-in-2022-11)
     - [JS](#js)
       - [Original version created in 2022-09](#original-version-created-in-2022-09)
-      - [Revisit the project in 2022-11](#revisit-the-project-in-2022-11)
+      - [Revisit the project in 2022-11](#revisit-the-project-in-2022-11-1)
         - [Console version](#console-version)
         - [UI version](#ui-version)
   - [To do](#to-do)
@@ -29,6 +30,9 @@
 #### Revisit the project in 2022-10
 - Add responsiveness
 - Add dialog/modal
+#### Revisit the project in 2022-11
+- Add further responsiveness in text size, flex-wrap, image size
+- Hide scroll bar but keep the scrolling function
 
 ### JS
 #### Original version created in 2022-09
