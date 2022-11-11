@@ -5,6 +5,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    /* border: 1px solid red; */
 }
 
 body {
@@ -13,8 +14,10 @@ body {
     background-color: #333;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    /* Footer has fixed position at the bottom of the page */
+    overflow: hidden;
 }
 
 main {
@@ -34,27 +37,30 @@ main {
 h1 {
     font-family: "Audiowide";
     color: white;
-    font-size: 4rem;
+    font-size: clamp(2rem, 10vw, 4rem);
     text-shadow: 1px 1px 2px black;
 }
 
 h2 {
     font-family: "Quicksand";
     color: black;
-    font-size: 2rem; 
+    font-size: clamp(1rem, 5vw, 2rem); 
     letter-spacing: 5px;
     text-shadow: 1px 1px 2px white;
 }
 
 .choices {
-    display: flex;
+    width: 100%;
     margin: 3rem 0;
-    justify-content: center;
-    gap: clamp(0px, 10%, 150px);
-    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
 }
 
 .choice {
+    width: clamp(100px, 25%, 250px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,14 +102,14 @@ h2 {
 }
 
 .choice-img {
-    width: 150px;
+    width: clamp(50px, 100%, 150px);
     height: 150px;
     box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
     border-radius: 50%;
 }
 
 .choice-text {
-    font-size: 2rem;
+    font-size: clamp(1rem, 4vw, 2rem);
     display: block;
     width: 100%;
     text-align: center;
@@ -126,14 +132,15 @@ h2 {
 
 .scores {
     display: flex;
-    width: max(50%, 420px);
+    /* iPhone SE width is 375px */
+    width: max(65%, 360px);  
     justify-content: space-around;
     background-color: rgba(0,0,0,0.6);
 }
 
 .score {
     font-family: "Audiowide";
-    font-size: 2rem;
+    font-size: clamp(1rem, 5vw, 2rem);
     color: white;
 }
 
